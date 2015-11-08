@@ -18,12 +18,17 @@ h3{
     
     background-image: url("images/bgFRAME.png");
     background-repeat: repeat;
+      background-color: black;
 
 }
 
-#designframe {
-	background-image: url("images/DesignBG.png");
+#helmetTemplate {
+	/*background-color: black;*/
+  background-image: url("images/DesignBG.png");
 	background-repeat: repeat;
+  /*background-repeat: repeat-y;*/
+  /*background-size: 100%;*/
+
 }
 /*
 html {

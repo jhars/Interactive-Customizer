@@ -10,7 +10,15 @@ var wrapSources = {
   carbon: '../images/layers/side/wraps/wrap-carbon.png',
   black: '../images/layers/side/wraps/wrap-black.png',
   sunrise: '../images/layers/side/wraps/wrap-sun-rise.png',
-  white: '../images/layers/side/wraps/wrap-white.png'
+  white: '../images/layers/side/wraps/wrap-white.png',
+  stripes: '../images/layers/side/wraps/custom-stripes.png',
+  lasers: '../images/layers/side/wraps/wrap-lasers.png',
+  irish: '../images/layers/side/wraps/wrap-plaid-irish-green.png',
+  skyline: '../images/layers/side/wraps/wrap-skyline.png',
+  usa: '../images/layers/side/wraps/wrap-usa.png',
+  turtle: '../images/layers/side/wraps/wrap-turtle.png',
+  brain: '../images/layers/side/wraps/wrap-brain.png'
+
 };
 var panelSources = {
   green: '../images/layers/side/back-panel/back-panel-neon-green.png',
