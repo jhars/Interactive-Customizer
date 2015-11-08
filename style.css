@@ -1,0 +1,75 @@
+h2{
+  color:white;
+  font-family: sans-serif;
+}
+h3{
+  color:white;
+  font-family: sans-serif; 
+  text-align: center;
+  font-size:48px;
+}
+
+#next {
+	color:white;
+
+}
+
+#helmet {
+    
+    background-image: url("images/bgFRAME.png");
+    background-repeat: repeat;
+
+}
+
+#designframe {
+	background-image: url("images/DesignBG.png");
+	background-repeat: repeat;
+}
+/*
+html {
+  touch-action: none;
+  content-zooming: none;
+}*/
+
+img#visorUI {
+	position: absolute;
+	    left: 1450px;
+	    top: 200px;
+}
+
+img#maskUI {
+
+
+    position: absolute;
+        left: 1075px;
+        top: 200px;
+}
+
+img#panelUI {
+
+    position: absolute;
+        left: 1450px;
+        top: 600px;
+}
+
+img#strapUI {
+position: absolute;
+    left: 1550px;
+    top: 400px;
+}
+
+img#chinUI {
+	position: absolute;
+	    left: 1075px;
+	    top: 575px;
+
+
+}
+
+img#wrapUI {
+position: absolute;
+    left: 1200px;
+    top: 350px;
+}
+
+
