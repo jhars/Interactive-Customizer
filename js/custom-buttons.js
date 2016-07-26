@@ -1,248 +1,153 @@
+  var visorSources = {
+    black: '../images/layers/side/visors/visor-black.png',
+    carbon: '../images/layers/side/visors/visor-carbon.png',
+    green: '../images/layers/side/visors/visor-green.png',
+    red: '../images/layers/side/visors/visor-red.png',
+    white: '../images/layers/side/visors/visor-white.png'
+  };
+  var wrapSources = {
+    carbon: '../images/layers/side/wraps/wrap-carbon.png',
+    black: '../images/layers/side/wraps/wrap-black.png',
+    sunrise: '../images/layers/side/wraps/wrap-sun-rise.png',
+    white: '../images/layers/side/wraps/wrap-white.png',
+    stripes: '../images/layers/side/wraps/custom-stripes.png',
+    lasers: '../images/layers/side/wraps/wrap-lasers.png',
+    irish: '../images/layers/side/wraps/wrap-plaid-irish-green.png',
+    skyline: '../images/layers/side/wraps/wrap-skyline.png',
+    usa: '../images/layers/side/wraps/wrap-usa.png',
+    turtle: '../images/layers/side/wraps/wrap-turtle.png',
+    brain: '../images/layers/side/wraps/wrap-brain.png'
 
-//=====>>>>> [[[HELMET WRAP TEMPLATE]]]//=====>>>>> [[[HELMET WRAP TEMPLATE]]]
-//=====>>>>> [[[HELMET WRAP TEMPLATE]]]//=====>>>>> [[[HELMET WRAP TEMPLATE]]]
-//=====>>>>> [[[HELMET WRAP TEMPLATE]]]//=====>>>>> [[[HELMET WRAP TEMPLATE]]]
-//=====>>>>> [[[HELMET WRAP TEMPLATE]]]//=====>>>>> [[[HELMET WRAP TEMPLATE]]]
-// var canvas = document.getElementById('btnWrap06');
-//      var context = canvas.getContext('2d');
-//      var imageObj = new Image();
-//      imageObj.onload = function() {
-//        var pattern = context.createPattern(imageObj, 'repeat');
-//        context.rect(0, 0, canvas.width, canvas.height);
-//        context.fillStyle = pattern;
-//        context.fill();
-//      };
-//      imageObj.src = 'http://www.html5canvastutorials.com/demos/assets/wood-pattern.png';
+  };
+  var panelSources = {
+    green: '../images/layers/side/back-panel/back-panel-neon-green.png',
+    purple: '../images/layers/side/back-panel/back-panel-purple.png',
+    sunrise: '../images/layers/side/back-panel/back-panel-SunShine.png'
+  };
+  // ========= [[[[[BASE IMAGE SOURCES]]]]] =======//
+  var sources = {
+    BASE: '../images/crShell_WHITE.png',
+    template: '../images/TEMPLATE.png',
+    black: '../images/BaseBlack.png',
+    chinstrap: '../images/layers/side/straps/chin-strap-white.png'
+  };
+  var chin, visor, panel, wrap;
+  //============IMAGE LOADER=================//
+  var images = {};
+  function loadImages(sources, callback) {
+    var loadedImages = 0;
+    var numImages = 0;
+    for(var src in sources) {
+      numImages++;
+    } for (var src in sources) {
+      images[src] = new Image();
+      images[src].onload = function() {
+        if(++loadedImages >= numImages) {
+          callback(images);
+        }
+      };
+      images[src].src = sources[src];
+    }
+  }
+  var canvas = document.getElementById('customHelmet');
+  var contextHelmet = canvas.getContext('2d');
 
+  loadImages(sources, function(images) {
+    contextHelmet.drawImage(images.black, 0, 0, canvas.width, canvas.height),
+    contextHelmet.drawImage(images.BASE, 0, 0, canvas.width, canvas.height)
+  });
+  document.getElementById('customHelmet').addEventListener('click', function() {
+    contextHelmet.drawImage(images.BASE, 0, 0, canvas.width, canvas.height);
+  });
 
-
-
-// [[[PROTOTYPE-BUTTONS]]]
-
-// ------------------[[[PURPLE-PROTOTYPE]]]------------------//
-// var buttonWrap = document.getElementById('btnWrap');
-// var btn = buttonWrap.getContext('2d');
-// btn.beginPath();
-// btn.rect(0, 0, canvas.width, canvas.height);
-// //[[[[[PURPLE-BUTTON]]]]]
-// btn.fillStyle = 'purple'; btn.fill();
-// //[[[[[PURPLE-BUTTON]]]]]
-// document.getElementById('btnWrap').addEventListener('click', function() {
-//     // =========== CHANGE IMAGE IN AND OUT HERE ===========//
-//     // =========== CHANGE IMAGE IN AND OUT HERE ===========//
-//     // =========== CHANGE IMAGE IN AND OUT HERE ===========//
-//   context.drawImage(images.template, 0, 0, canvas.width, canvas.height)
-//   // - - - - - - Draws Sticker Helmet Wrap Side-View Template - - - - //
-// });
-
-// ------------------[[[BLUE-PROTOTYPE]]]----------------//
-// var buttonBlue = document.getElementById('btnBlue');
-// var btn = buttonBlue.getContext('2d');
-// btn.beginPath();
-// btn.rect(0, 0, canvas.width, canvas.height);
-// // [[[BLUE-BUTTON]]]
-// btn.fillStyle = 'blue'; btn.fill();
-// // [[[BLUE-BUTTON]]]
-// document.getElementById('btnBlue').addEventListener('click', function() {
-//     // =========== CHANGE IMAGE IN AND OUT HERE ===========//
-//     // =========== CHANGE IMAGE IN AND OUT HERE ===========//
-//     // =========== CHANGE IMAGE IN AND OUT HERE ===========//
-//   context.drawImage(images.template, 0, 0, canvas.width, canvas.height)
-//   // - - - - - - Draws Sticker Helmet Wrap Side-View Template - - - - //
-// });
-
+$( document ).ready(function() {
 //------------------[[[[[CARBON-GREY-PROTOTYPE]]]]]------------------//
-var buttonWrap01 = document.getElementById('btnWrap01');
-var btn = buttonWrap01.getContext('2d');
-btn.beginPath();
-btn.rect(0, 0, canvas.width, canvas.height);
-//[[[[[GREY-BUTTON]]]]]
-btn.fillStyle = 'grey'; btn.fill();
-//[[[[[GREY-BUTTON]]]]]
-document.getElementById('btnWrap01').addEventListener('click', function() {
-    // =========== CHANGE IMAGE IN AND OUT HERE ===========//
-    var wrapCarbon = new Image();
-    wrapCarbon.src = wrapSources.carbon;
-    context.drawImage(wrapCarbon, 0, 0, canvas.width, canvas.height);
+  var buttonWrap01 = document.getElementById('btnWrap01');
+  var btnGry = buttonWrap01.getContext('2d');
+  btnGry.beginPath();
+  btnGry.rect(0, 0, canvas.width, canvas.height);
+  var carbonWrap = new Image();
+  carbonWrap.src = wrapSources.carbon;  
+  btnGry.fillStyle = 'grey';
+  btnGry.fill();
+
+//------------------[[[[[ USA ]]]]]------------------//
+  var buttonWrap02 = document.getElementById('btnWrap02');
+  var btnUSA = buttonWrap02.getContext('2d');
+  btnUSA.beginPath();
+  btnUSA.rect(0, 0, canvas.width, canvas.height);
+  var usaWrap = new Image();
+  usaWrap.src = wrapSources.usa;
+  btnUSA.fillStyle = 'red';
+  btnUSA.fill();
+  
+
+
+//------------------[[[[[ IRISH ]]]]]------------------//
+  var buttonWrap03 = document.getElementById('btnWrap03');
+  var btnOrange = buttonWrap03.getContext('2d');
+  btnOrange.beginPath();
+  btnOrange.rect(0, 0, canvas.width, canvas.height);
+  var irishWrap = new Image();
+  irishWrap.src = wrapSources.irish;
+  btnOrange.fillStyle = 'orange';
+  btnOrange.fill();
+  
+//------------------[[[[[ LASERS ]]]]]------------------//
+  var buttonWrap04 = document.getElementById('btnWrap04');
+  var btnPurple = buttonWrap04.getContext('2d');
+  btnPurple.beginPath();
+  btnPurple.rect(0, 0, canvas.width, canvas.height);
+  var laserWrap = new Image();
+  laserWrap.src = wrapSources.lasers;
+  btnPurple.fillStyle = 'purple';
+  btnPurple.fill();
+  
+//------------------[[[[[ BRAIN ]]]]]------------------//
+  var buttonWrap06 = document.getElementById('btnWrap06');
+  var btnGreen = buttonWrap06.getContext('2d');
+  btnGreen.beginPath();
+  btnGreen.rect(0, 0, canvas.width, canvas.height);
+  var brainWrap = new Image();
+  brainWrap.src = wrapSources.brain;  
+  btnGreen.fillStyle = 'green';
+  btnGreen.fill();
+
+
+
+
+  buttonWrap01.addEventListener('mousedown', function() {
+    var image = new Image();
+    image.src = wrapSources.carbon;
+    contextHelmet.drawImage(image, 0, 0, canvas.width, canvas.height);
+  });
+
+
+  buttonWrap02.addEventListener('mousedown', function() {
+    var image = new Image();
+    image.src = wrapSources.usa;
+    contextHelmet.drawImage(image, 0, 0, canvas.width, canvas.height);
+  });
+
+  buttonWrap03.addEventListener('mousedown', function() {
+    var image = new Image();
+    image.src = wrapSources.irish;
+    contextHelmet.drawImage(image, 0, 0, canvas.width, canvas.height);
+  });
+
+  buttonWrap04.addEventListener('mousedown', function() {
+    var image = new Image();
+    image.src = wrapSources.lasers;
+    contextHelmet.drawImage(image, 0, 0, canvas.width, canvas.height);
+  });
+
+  buttonWrap06.addEventListener('mousedown', function() {
+    var image = new Image();
+    image.src = wrapSources.brain;
+    contextHelmet.drawImage(image, 0, 0, canvas.width, canvas.height);
+  });
+
+  // ===================================================================== //
+  // ===================================================================== //
+
 });
-
-//------------------[[[[[USA-BUTTON]]]]]------------------//
-var buttonWrap02 = document.getElementById('btnWrap02');
-var btn = buttonWrap02.getContext('2d');
-btn.beginPath();
-btn.rect(0, 0, canvas.width, canvas.height);
-//[[[[[GREY-BUTTON]]]]]
-btn.fillStyle = 'red'; btn.fill();
-//[[[[[GREY-BUTTON]]]]]
-document.getElementById('btnWrap02').addEventListener('click', function() {
-    // =========== CHANGE IMAGE IN AND OUT HERE ===========//
-    var wrapCarbon = new Image();
-    wrapCarbon.src = wrapSources.usa;
-    context.drawImage(wrapCarbon, 0, 0, canvas.width, canvas.height);
-});
-//------------------[[[[[IRISH-BUTTON]]]]]------------------//
-var buttonWrap03 = document.getElementById('btnWrap03');
-var btn = buttonWrap03.getContext('2d');
-btn.beginPath();
-btn.rect(0, 0, canvas.width, canvas.height);
-//[[[[[GREY-BUTTON]]]]]
-btn.fillStyle = 'green'; btn.fill();
-//[[[[[GREY-BUTTON]]]]]
-document.getElementById('btnWrap03').addEventListener('click', function() {
-    // =========== CHANGE IMAGE IN AND OUT HERE ===========//
-    var wrapCarbon = new Image();
-    wrapCarbon.src = wrapSources.irish;
-    context.drawImage(wrapCarbon, 0, 0, canvas.width, canvas.height);
-});
-//------------------[[[[[LASERS-BUTTON]]]]]------------------//
-var buttonWrap04 = document.getElementById('btnWrap04');
-var btn = buttonWrap04.getContext('2d');
-btn.beginPath();
-btn.rect(0, 0, canvas.width, canvas.height);
-//[[[[[GREY-BUTTON]]]]]
-btn.fillStyle = 'black'; btn.fill();
-//[[[[[GREY-BUTTON]]]]]
-document.getElementById('btnWrap04').addEventListener('click', function() {
-    // =========== CHANGE IMAGE IN AND OUT HERE ===========//
-    var wrapCarbon = new Image();
-    wrapCarbon.src = wrapSources.lasers;
-    context.drawImage(wrapCarbon, 0, 0, canvas.width, canvas.height);
-});
-//------------------[[[[[SKYLINE-BUTTON]]]]]------------------//
-var buttonWrap05 = document.getElementById('btnWrap05');
-var btn = buttonWrap05.getContext('2d');
-btn.beginPath();
-btn.rect(0, 0, canvas.width, canvas.height);
-//[[[[[GREY-BUTTON]]]]]
-btn.fillStyle = 'blue'; btn.fill();
-//[[[[[GREY-BUTTON]]]]]
-document.getElementById('btnWrap05').addEventListener('click', function() {
-    // =========== CHANGE IMAGE IN AND OUT HERE ===========//
-    var wrapCarbon = new Image();
-    wrapCarbon.src = wrapSources.skyline;
-    context.drawImage(wrapCarbon, 0, 0, canvas.width, canvas.height);
-});
-// //------------------[[[[[BRAIN-BUTTON]]]]]------------------//
-var buttonWrap06 = document.getElementById('btnWrap06');
-var btn = buttonWrap06.getContext('2d');
-btn.beginPath();
-btn.rect(0, 0, canvas.width, canvas.height);
-//[[[[[GREY-BUTTON]]]]]
- var boxUI = new Image();
-    boxUI.src = wrapSources.brain;
-btn.fillStyle = 'green';
-// btn.fillStyle = boxUI
-btn.fill();
-//[[[[[GREY-BUTTON]]]]]
-document.getElementById('btnWrap06').addEventListener('click', function() {
-    // =========== CHANGE IMAGE IN AND OUT HERE ===========//
-    var wrapCarbon = new Image();
-    wrapCarbon.src = wrapSources.brain;
-    context.drawImage(wrapCarbon, 0, 0, canvas.width, canvas.height);
-});
-
-// var buttonWrap06 = document.getElementById('btnWrap06');
-
-// //------------------[[[[[STRIPES-BUTTON]]]]]------------------//
-// var buttonWrap01 = document.getElementById('btnWrap01');
-// var btn = buttonWrap01.getContext('2d');
-// btn.beginPath();
-// btn.rect(0, 0, canvas.width, canvas.height);
-// //[[[[[GREY-BUTTON]]]]]
-// btn.fillStyle = 'grey'; btn.fill();
-// //[[[[[GREY-BUTTON]]]]]
-// document.getElementById('btnWrap01').addEventListener('click', function() {
-//     // =========== CHANGE IMAGE IN AND OUT HERE ===========//
-//     var wrapCarbon = new Image();
-//     wrapCarbon.src = wrapSources.carbon;
-//     context.drawImage(wrapCarbon, 0, 0, canvas.width, canvas.height);
-// });
-
-
-
-
-
-
-//=====>>>>> [[[HELMET WRAP TEMPLATE]]]//=====>>>>> [[[HELMET WRAP TEMPLATE]]]
-//=====>>>>> [[[HELMET WRAP TEMPLATE]]]//=====>>>>> [[[HELMET WRAP TEMPLATE]]]
-//=====>>>>> [[[HELMET WRAP TEMPLATE]]]//=====>>>>> [[[HELMET WRAP TEMPLATE]]]
-//=====>>>>> [[[HELMET WRAP TEMPLATE]]]//=====>>>>> [[[HELMET WRAP TEMPLATE]]]
-
-
-//[[[PANEL-PINK]]]
-var buttonPanel = document.getElementById('btnPanel');
-var btn = buttonPanel.getContext('2d');
-btn.beginPath();
-btn.rect(0, 0, canvas.width, canvas.height);
-btn.fillStyle = 'pink';
-btn.fill();
-document.getElementById('btnPanel').addEventListener('click', function() {
-  var panelORANGE = new Image();
-  panelORANGE.src = panelSources.sunrise;
-  context.drawImage(panelORANGE, 0, 0, canvas.width, canvas.height);
-});
-
-
-
-
-
-
-
-
-
-
-
-// //============= SQUARE-BUTTONS-TOP-RIGHT =================//
-// //[[WRAP-WHITE]]
-// var buttonTemplate = document.getElementById('btnTEMPLATE');
-// var btn = buttonTemplate.getContext('2d');
-// btn.beginPath();
-// btn.rect(0, 0, canvas.width, canvas.height);
-// btn.fillStyle = 'white';
-// btn.fill();
-// document.getElementById('btnTEMPLATE').addEventListener('click', function() {
-//   context.drawImage(images.template, 0, 0, canvas.width, canvas.height)
-// });
-// //[[[WRAP-ORANGE]]]
-// var buttonOrange = document.getElementById('btnOrange');
-// var orange = buttonOrange.getContext('2d');
-// orange.beginPath();
-// orange.rect(0, 0, canvas.width, canvas.height);
-// orange.fillStyle = 'orange';
-// orange.fill();
-// document.getElementById('btnOrange').addEventListener('click', function() {
-//   var maskORANGE = new Image();
-//   maskORANGE.src = wrapSources.sunrise;
-//   var panelORANGE = new Image();
-//   panelORANGE.src = panelSources.sunrise;
-//   context.drawImage(panelORANGE, 0, 0, canvas.width, canvas.height);
-//   context.drawImage(maskORANGE, 0, 0, canvas.width, canvas.height);
-// });
-
-// //[[[VISOR-GREEN]]]
-// var buttonGreen = document.getElementById('btnGreen');
-// var btn = buttonGreen.getContext('2d');
-// btn.beginPath();
-// btn.rect(0, 0, canvas.width, canvas.height);
-// btn.fillStyle = 'green';
-// btn.fill();
-// document.getElementById('btnGreen').addEventListener('click', function() {
-//   var panelGREEN = new Image();
-//   panelGREEN.src = panelSources.green;
-//   var visorGREEN = new Image();
-//   visorGREEN.src = visorSources.green;
-//   context.drawImage(panelGREEN, 0, 0, canvas.width, canvas.height);
-//   context.drawImage(visorGREEN, 0, 0, canvas.width, canvas.height);
-// });
-//[[BASE-BLACK]]
-var buttonBlack = document.getElementById('btnBlack');
-var black = buttonBlack.getContext('2d');
-black.beginPath();
-black.rect(0, 0, canvas.width, canvas.height);
-black.fillStyle = 'black';
-black.fill();
-document.getElementById('btnBlack').addEventListener('click', function() {
-  context.drawImage(images.black, 0, 0, canvas.width, canvas.height);
-  //currentFrame = context. ??
-});
-

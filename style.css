@@ -1,5 +1,9 @@
+h1{
+  color: white;
+  font-family: sans-serif;
+}
 h2{
-  color:white;
+  color: white;
   font-family: sans-serif;
 }
 h3{
@@ -11,70 +15,57 @@ h3{
 
 #next {
 	color:white;
-
 }
 
 #helmet {
-    
-    background-image: url("images/bgFRAME.png");
-    background-repeat: repeat;
-      background-color: black;
-
+  background-image: url("images/bgFRAME.png");
+  background-repeat: repeat;
+  background-color: black;
 }
 
 #helmetTemplate {
-	/*background-color: black;*/
   background-image: url("images/DesignBG.png");
 	background-repeat: repeat;
-  /*background-repeat: repeat-y;*/
-  /*background-size: 100%;*/
-
 }
-/*
-html {
-  touch-action: none;
-  content-zooming: none;
-}*/
+
+#customHelmet {
+  /*margin-left: -220px;*/
+}
 
 img#visorUI {
 	position: absolute;
-	    left: 1450px;
-	    top: 200px;
+  left: 1450px;
+  top: 200px;
 }
 
 img#maskUI {
-
-
-    position: absolute;
-        left: 1075px;
-        top: 200px;
+  position: absolute;
+  left: 1075px;
+  top: 200px;
 }
 
 img#panelUI {
-
     position: absolute;
-        left: 1450px;
-        top: 600px;
+    left: 1450px;
+    top: 600px;
 }
 
 img#strapUI {
-position: absolute;
-    left: 1550px;
-    top: 400px;
+  position: absolute;
+  left: 1550px;
+  top: 400px;
 }
 
 img#chinUI {
 	position: absolute;
-	    left: 1075px;
-	    top: 575px;
-
-
+  left: 1075px;
+  top: 575px;
 }
 
 img#wrapUI {
-position: absolute;
-    left: 1200px;
-    top: 350px;
+  position: absolute;
+  left: 1200px;
+  top: 350px;
 }
 
 
